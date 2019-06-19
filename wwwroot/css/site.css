@@ -1,0 +1,83 @@
+﻿* {
+  margin: 0px;
+  padding: 0px;
+}
+.wrapper {
+  margin: 0px auto;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  height: 868px;
+  width: 950px;
+}
+.header {
+  width: 950px;
+  height: 100px;
+}
+.header h1 {
+  width: 450px;;
+  height: 100px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.headerright {
+  width: 450px;;
+  height: 100px;
+  display: inline-block;
+  text-align: right;
+}
+
+table {
+  border-collapse: collapse;
+  width: 75%;
+  margin: 0 auto;
+  background-color: white;
+  color: black;
+}
+
+tr {
+  text-align: center;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.Newwedlink {
+  width: 900px;
+  height: 50px;
+  margin-top: 10px;
+  display: inline-block;
+  text-align: right;
+}
+.main {
+    height: 568px;
+    width: auto;
+
+
+}
+
+form label {
+    display: inline-block;
+    width: 100px;
+    text-align: left;
+    margin-top: 2px;
+    line-height: 30px;
+    font-size: 12px;
+}
+form {
+    height: auto;
+    width: 300px;
+    border-radius: 20px;
+    padding: 20px;
+    margin-left: 120px;
+    margin-top: 120px;
+}
+

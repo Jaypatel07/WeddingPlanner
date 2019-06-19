@@ -1,0 +1,76 @@
+@using Wedding_Planner.Models 
+@model List<Wedding_Planner.Models.Wedding>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="~/css/site.css"/>
+        <title>Wedding Planner | Dashboard </title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="header">
+                <h1>Welcome To Wedding Planner</h1>
+                <div class="headerright">
+                    <a href="/Logout">Logout</a>
+                </div> 
+            </div>
+            <div class="main">
+                <table>
+                    <thead>
+                        <th>Wedding</th>
+                        <th>Date</th>
+                        <th>Guests</th>
+                        <th>Action</th>
+                    </thead>
+                    <tbody>
+
+                        @{
+
+                        foreach(var wedding in @ViewBag.AllWeddings) {
+                        <tr>
+                            <td>
+                                <a href="Wedding/@wedding.WeddingId">@wedding.WedderOne @wedding.WedderTwo</a>
+                            </td>
+                            <td>
+                                @wedding.WeddingDate.ToString("MMM dd, yyyy")
+                            </td>
+                            <td>
+                                @wedding.Guests.Count
+                            </td>
+                            @if(@ViewBag.UserId == @wedding.UserId){
+                                <td>
+                                <a href="Delete/@wedding.WeddingId">Delete</a>
+                                </td>
+                            } 
+                            else {
+                                int Count = 0;
+                                @foreach(var guest in @wedding.Guests) {
+                                    @if(@guest.User == @ViewBag.CurrentUser) {
+                                        Count = 1;
+                                    }
+                                }
+                                @if(Count == 1) {
+                                    <td>
+                                        <a href="Decline/@wedding.WeddingId">Decline Invite</a>
+                                    </td>
+                                } 
+                                else {
+                                <td>
+                                    <a href="RSVP/@wedding.WeddingId">RSVP</a>
+                                </td> 
+                                }
+                            }
+                        </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+                <a class="Newwedlink" href="NewWedding">New Wedding</a>
+            </div>
+        </div>
+    </body>
+</html>

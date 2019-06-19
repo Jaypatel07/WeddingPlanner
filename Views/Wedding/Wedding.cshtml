@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/site.css"/>
+    <title>Wedding Details</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <h1>Wedding of @ViewBag.CurrentWedding.WedderOne @ViewBag.CurrentWedding.WedderTwo</h1>
+            <div class="headerright">
+                <a href="/Dashboard">Dashboard</a> |
+                <a href="/Logout">Logout</a>
+            </div>
+          
+        </div>
+        <div class="main">
+            <h3>Date: @ViewBag.CurrentWedding.WeddingDate.ToString("MMM dd, yyyy")</h3>
+            @if(@ViewBag.CurrentWedding.Guests.Count > 0) {
+                <h3>Guests: </h3>
+                <ul>
+                    @{
+                        foreach(var guest in @ViewBag.CurrentWedding.Guests) {
+                            <li>@guest.User.FirstName @guest.User.LastName</li>
+                        }
+                    }
+                </ul>
+            }
+        </div>
+    </div>
+</body>
+</html>

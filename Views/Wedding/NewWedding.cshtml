@@ -1,0 +1,38 @@
+@model Wedding_Planner.Models.Wedding
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/site.css"/>
+    <title>Plan A Wedding</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <h1>Plan Your Wedding</h1>
+            <div class="headerright">
+                <a href="/Dashboard">Dashboard</a> |
+                <a href="/Logout">Logout</a>
+            </div>
+           
+        </div>
+        <div class="main">
+            <form asp-action="AddWedding" asp-controller="Wedding" method="Post">
+                <input type="hidden" asp-for="UserId" value="@ViewBag.UserId">
+                <span asp-validation-for="WedderOne"></span>
+                <label asp-for="WedderOne"></label><input asp-for="WedderOne">
+                <span asp-validation-for="WedderTwo"></span>
+                <label asp-for="WedderTwo"></label><input asp-for="WedderTwo">
+                <span asp-validation-for="WeddingDate"></span>
+                <label asp-for="WeddingDate"></label><input asp-for="WeddingDate">
+                <span asp-validation-for="Address"></span>
+                <label asp-for="Address"></label><input asp-for="Address"><br>
+                <input type="submit" value="Create">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
